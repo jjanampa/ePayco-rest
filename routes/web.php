@@ -1,5 +1,6 @@
 <?php
 
+use CodeDredd\Soap\Facades\Soap;
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -13,6 +14,8 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+$router->post('/register-customer', 'WalletController@registerCustomer');
+$router->post('/wallet-recharge', 'WalletController@walletRecharge');
+$router->post('/pay', 'WalletController@pay');
+$router->post('/confirm-pay', 'WalletController@confirmPay');
+$router->get('/check-balance', 'WalletController@checkBalance');
